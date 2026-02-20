@@ -1,0 +1,11 @@
+aircraft_model,msn,modifications_applied,EASA_AD_2025-0254R1_1,EASA_AD_US-2025-23-53_1
+MD-11,48123,,❌ Not applicable,✅ Affected
+DC-10-30F,47890,,❌ Not applicable,✅ Affected
+Boeing 737-800,30123,,❌ Not applicable,❌ Not applicable
+A320-214,5234,,✅ Affected,❌ Not applicable
+A320-232,6789,mod 24591 (production),❌ Not Affected,❌ Not applicable
+A320-214,7456,SB A320-57-1089 Rev 04,❌ Not Affected,❌ Not applicable
+A321-111,8123,,✅ Affected,❌ Not applicable
+A321-112,364,mod 24977 (production),❌ Not Affected,❌ Not applicable
+A319-100,9234,,❌ Not applicable,❌ Not applicable
+MD-10-10F,46234,,❌ Not applicable,✅ Affected

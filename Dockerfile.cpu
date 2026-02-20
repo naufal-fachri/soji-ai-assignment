@@ -1,0 +1,58 @@
+# ============================================================
+#  soji-ai — AD Recognition Pipeline (CPU)
+# ============================================================
+
+FROM ubuntu:24.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+# ------------------------------------------------------------ #
+#  System dependencies
+# ------------------------------------------------------------ #
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3.12 \
+    python3.12-venv \
+    python3.12-dev \
+    python3-pip \
+    poppler-utils \
+    libgl1 \
+    libglib2.0-0 \
+    libsm6 \
+    libxext6 \
+    libxrender1 \
+    libgomp1 \
+    fonts-dejavu-core \
+    curl \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# ------------------------------------------------------------ #
+#  Install uv
+# ------------------------------------------------------------ #
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+
+# ------------------------------------------------------------ #
+#  App setup
+# ------------------------------------------------------------ #
+WORKDIR /app
+
+COPY pyproject.toml uv.lock* ./
+
+# Install deps, then swap paddlepaddle-gpu for CPU version
+RUN uv sync --frozen --no-dev --no-install-project && \
+    uv pip uninstall paddlepaddle-gpu && \
+    uv pip install paddlepaddle==3.3.0 --index-url https://www.paddlepaddle.org.cn/packages/stable/cpu/
+
+COPY . .
+RUN uv sync --frozen --no-dev
+
+# ------------------------------------------------------------ #
+#  Environment
+# ------------------------------------------------------------ #
+ENV PYTHONUNBUFFERED=1
+ENV PADDLE_PDX_DISABLE_MODEL_SOURCE_CHECK=True
+
+# ------------------------------------------------------------ #
+#  Entrypoint (force CPU device)
+# ------------------------------------------------------------ #
+ENTRYPOINT ["uv", "run", "python", "-m", "src.run", "--device", "cpu"]

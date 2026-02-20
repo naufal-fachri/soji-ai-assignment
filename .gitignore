@@ -12,8 +12,5 @@ wheels/
 # Environment
 .env
 
-# Experiment files
-documents/
-
-# Notebooks
-notebooks/
+# Temporary
+temp/

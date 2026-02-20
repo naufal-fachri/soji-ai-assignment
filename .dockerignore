@@ -1,0 +1,41 @@
+# Virtual environments
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# Git
+.git/
+.gitignore
+
+# Secrets
+.env
+
+# Temp & output (will be mounted as volumes)
+tmp/
+results/
+
+# IDE
+.vscode/
+.idea/
+
+# Linting & testing cache
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker files (no need to copy into image)
+Dockerfile
+Dockerfile.cpu
+.dockerignore
+
+# Docs
+README.md
+LICENSE

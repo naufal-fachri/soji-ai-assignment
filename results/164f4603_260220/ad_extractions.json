@@ -1,0 +1,653 @@
+{
+  "EASA_AD_2025-0254R1_1": {
+    "ad_number": "2025-0254R1",
+    "issuing_authority": "EASA",
+    "effective_date": "2025-12-08",
+    "revision": "Revision 01",
+    "supersedes": [
+      "2025-0254",
+      "2007-0162",
+      "2014-0169"
+    ],
+    "models": [
+      "A320-211",
+      "A320-212",
+      "A320-214",
+      "A320-215",
+      "A320-216",
+      "A320-231",
+      "A320-232",
+      "A320-233",
+      "A321-111",
+      "A321-112",
+      "A321-131"
+    ],
+    "msn_constraints": [
+      {
+        "all": true,
+        "range": null,
+        "specific_msns": null,
+        "excluded": false
+      }
+    ],
+    "modification_constraints": [
+      {
+        "modification_id": "mod 24591",
+        "embodied": true,
+        "excluded": true
+      },
+      {
+        "modification_id": "mod 24977",
+        "embodied": true,
+        "excluded": true
+      }
+    ],
+    "sb_constraints": [
+      {
+        "sb_identifier": "A320-57-1089",
+        "revision": "Revision 04",
+        "incorporated": true,
+        "excluded": true
+      }
+    ],
+    "compliance_time": [
+      {
+        "value": 24,
+        "unit": "months",
+        "reference": "after the effective date of this AD",
+        "calendar_date": null,
+        "is_interval": false
+      },
+      {
+        "value": 17300,
+        "unit": "flight_cycles",
+        "reference": "since aeroplane first flight",
+        "calendar_date": null,
+        "is_interval": false
+      },
+      {
+        "value": 32300,
+        "unit": "flight_hours",
+        "reference": "since aeroplane first flight",
+        "calendar_date": null,
+        "is_interval": false
+      }
+    ],
+    "groups": [
+      {
+        "group_id": "Group 1",
+        "models": [
+          "A321-111",
+          "A321-112",
+          "A321-131"
+        ],
+        "msn_constraints": null,
+        "modification_constraints": null,
+        "sb_constraints": null,
+        "description": "A321 aeroplanes, which are not Group 2 aeroplanes."
+      },
+      {
+        "group_id": "Group 2",
+        "models": [
+          "A321-111",
+          "A321-112",
+          "A321-131"
+        ],
+        "msn_constraints": [
+          {
+            "all": null,
+            "range": null,
+            "specific_msns": [
+              364,
+              385
+            ],
+            "excluded": false
+          }
+        ],
+        "modification_constraints": null,
+        "sb_constraints": null,
+        "description": "A321 aeroplanes having MSN 364 or MSN 385."
+      },
+      {
+        "group_id": "Group 3",
+        "models": [
+          "A320-211",
+          "A320-212",
+          "A320-214",
+          "A320-215",
+          "A320-216",
+          "A320-231",
+          "A320-232",
+          "A320-233"
+        ],
+        "msn_constraints": [
+          {
+            "all": true,
+            "range": null,
+            "specific_msns": null,
+            "excluded": false
+          }
+        ],
+        "modification_constraints": null,
+        "sb_constraints": [
+          {
+            "sb_identifier": "A320-57-1089",
+            "revision": null,
+            "incorporated": false,
+            "excluded": false
+          }
+        ],
+        "description": "A320 aeroplanes on which, before the effective date of this AD, Airbus SB A320-57-1089 has not been embodied."
+      },
+      {
+        "group_id": "Group 4",
+        "models": [
+          "A320-211",
+          "A320-212",
+          "A320-214",
+          "A320-215",
+          "A320-216",
+          "A320-231",
+          "A320-232",
+          "A320-233"
+        ],
+        "msn_constraints": null,
+        "modification_constraints": null,
+        "sb_constraints": null,
+        "description": "A320 aeroplanes which are not Group 3"
+      }
+    ],
+    "requirements": [
+      {
+        "paragraph_id": "(1)",
+        "action_type": "inspection",
+        "applies_to_groups": [
+          "Group 1"
+        ],
+        "applies_to_models": null,
+        "additional_applicability_condition": "except aeroplanes modified in accordance with the instructions of Airbus SB A320-57-1100",
+        "description": "Accomplish a Detailed Inspection (DET) of the left-hand (LH) and right-hand (RH) wing inner rear spars at the Main Landing Gear (MLG) anchorage fitting and forward pintle fitting, in accordance with the instructions of SB A320-57-1101 Revision 04.",
+        "compliance_times": [
+          {
+            "value": 39400,
+            "unit": "flight_hours",
+            "reference": "since first flight of the aeroplane",
+            "calendar_date": null,
+            "is_interval": false
+          },
+          {
+            "value": 24000,
+            "unit": "flight_cycles",
+            "reference": "since first flight of the aeroplane",
+            "calendar_date": null,
+            "is_interval": false
+          }
+        ],
+        "interval": [
+          {
+            "value": 5500,
+            "unit": "flight_hours",
+            "reference": null,
+            "calendar_date": null,
+            "is_interval": true
+          },
+          {
+            "value": 3300,
+            "unit": "flight_cycles",
+            "reference": null,
+            "calendar_date": null,
+            "is_interval": true
+          }
+        ],
+        "reference_documents": [
+          "SB A320-57-1101 Revision 04"
+        ],
+        "triggered_by_paragraph": null,
+        "terminating_action_for": null,
+        "is_terminating_action": false
+      },
+      {
+        "paragraph_id": "(2)",
+        "action_type": "inspection",
+        "applies_to_groups": [
+          "Group 2"
+        ],
+        "applies_to_models": null,
+        "additional_applicability_condition": null,
+        "description": "Accomplish a DET of the LH and RH wing inner rear spars, at the attachment holes of the MLG rib 5 fitting, anchorage fitting and forward pintle fitting, in accordance with the instructions of SB A320-57-1126.",
+        "compliance_times": [
+          {
+            "value": 39400,
+            "unit": "flight_hours",
+            "reference": "since first flight of the aeroplane",
+            "calendar_date": null,
+            "is_interval": false
+          },
+          {
+            "value": 24000,
+            "unit": "flight_cycles",
+            "reference": "since first flight of the aeroplane",
+            "calendar_date": null,
+            "is_interval": false
+          }
+        ],
+        "interval": [
+          {
+            "value": 5500,
+            "unit": "flight_hours",
+            "reference": null,
+            "calendar_date": null,
+            "is_interval": true
+          },
+          {
+            "value": 3600,
+            "unit": "flight_cycles",
+            "reference": null,
+            "calendar_date": null,
+            "is_interval": true
+          }
+        ],
+        "reference_documents": [
+          "SB A320-57-1126"
+        ],
+        "triggered_by_paragraph": null,
+        "terminating_action_for": null,
+        "is_terminating_action": false
+      },
+      {
+        "paragraph_id": "(3)",
+        "action_type": "corrective_action",
+        "applies_to_groups": null,
+        "applies_to_models": null,
+        "additional_applicability_condition": null,
+        "description": "If, during any inspection as required by paragraph (1) of this AD, discrepancies are detected, before next flight, contact Airbus for approved repair instructions and, within the compliance time specified therein, accomplish those instructions accordingly.",
+        "compliance_times": null,
+        "interval": null,
+        "reference_documents": null,
+        "triggered_by_paragraph": "(1)",
+        "terminating_action_for": null,
+        "is_terminating_action": false
+      },
+      {
+        "paragraph_id": "(4)",
+        "action_type": "corrective_action",
+        "applies_to_groups": null,
+        "applies_to_models": null,
+        "additional_applicability_condition": null,
+        "description": "If, during any inspection as required by paragraph (2) of this AD, discrepancies are detected, before next flight, contact Airbus for approved repair instructions and, within the compliance time specified therein, accomplish those instructions accordingly.",
+        "compliance_times": null,
+        "interval": null,
+        "reference_documents": null,
+        "triggered_by_paragraph": "(2)",
+        "terminating_action_for": null,
+        "is_terminating_action": false
+      },
+      {
+        "paragraph_id": "(5)",
+        "action_type": "inspection",
+        "applies_to_groups": [
+          "Group 3"
+        ],
+        "applies_to_models": null,
+        "additional_applicability_condition": null,
+        "description": "Within the compliance time as specified in Table 1 of this AD, as applicable, and, thereafter, at intervals not exceeding 6 700 FH or 3 600 FC, whichever occurs first, inspect the wing rear spar Part A and Part B in accordance with the instructions of Airbus SB A320-57-1088, as applicable.",
+        "compliance_times": [
+          {
+            "value": 17300,
+            "unit": "flight_cycles",
+            "reference": "since aeroplane first flight",
+            "calendar_date": null,
+            "is_interval": false
+          },
+          {
+            "value": 32300,
+            "unit": "flight_hours",
+            "reference": "since aeroplane first flight",
+            "calendar_date": null,
+            "is_interval": false
+          },
+          {
+            "value": 37300,
+            "unit": "flight_hours",
+            "reference": "since aeroplane first flight",
+            "calendar_date": null,
+            "is_interval": false
+          },
+          {
+            "value": 20000,
+            "unit": "flight_cycles",
+            "reference": "since aeroplane first flight",
+            "calendar_date": null,
+            "is_interval": false
+          }
+        ],
+        "interval": [
+          {
+            "value": 6700,
+            "unit": "flight_hours",
+            "reference": null,
+            "calendar_date": null,
+            "is_interval": true
+          },
+          {
+            "value": 3600,
+            "unit": "flight_cycles",
+            "reference": null,
+            "calendar_date": null,
+            "is_interval": true
+          }
+        ],
+        "reference_documents": [
+          "SB A320-57-1088"
+        ],
+        "triggered_by_paragraph": null,
+        "terminating_action_for": null,
+        "is_terminating_action": false
+      },
+      {
+        "paragraph_id": "(6)",
+        "action_type": "corrective_action",
+        "applies_to_groups": null,
+        "applies_to_models": null,
+        "additional_applicability_condition": null,
+        "description": "If, during any inspection as required by paragraph (5) of this AD, discrepancies are detected, in SB A320-57-1088, are detected, before next flight, contact Airbus for approved repair instructions and, within the compliance time specified therein, accomplish those instructions accordingly.",
+        "compliance_times": null,
+        "interval": null,
+        "reference_documents": null,
+        "triggered_by_paragraph": "(5)",
+        "terminating_action_for": null,
+        "is_terminating_action": false
+      },
+      {
+        "paragraph_id": "(7)",
+        "action_type": "modification",
+        "applies_to_groups": [
+          "Group 3"
+        ],
+        "applies_to_models": null,
+        "additional_applicability_condition": null,
+        "description": "Before exceeding 48 000 FC or 96 000 FH, whichever occurs first since first flight of the aeroplane, modify the aeroplane in accordance with the instructions of Airbus SB A320-57-1089 Revision 04.",
+        "compliance_times": [
+          {
+            "value": 48000,
+            "unit": "flight_cycles",
+            "reference": "since first flight of the aeroplane",
+            "calendar_date": null,
+            "is_interval": false
+          },
+          {
+            "value": 96000,
+            "unit": "flight_hours",
+            "reference": "since first flight of the aeroplane",
+            "calendar_date": null,
+            "is_interval": false
+          }
+        ],
+        "interval": null,
+        "reference_documents": [
+          "SB A320-57-1089 Revision 04"
+        ],
+        "triggered_by_paragraph": null,
+        "terminating_action_for": [
+          "(5)"
+        ],
+        "is_terminating_action": true
+      },
+      {
+        "paragraph_id": "(8)",
+        "action_type": "inspection",
+        "applies_to_groups": [
+          "Group 1",
+          "Group 4"
+        ],
+        "applies_to_models": null,
+        "additional_applicability_condition": "having embodied SB A320-57-1089 at any revision lower than Revision 04 (for Group 4 aeroplanes)",
+        "description": "Within 24 months after the effective date of this AD, accomplish the DET inspection on the affected parts, in accordance with the instructions of the SB.",
+        "compliance_times": [
+          {
+            "value": 24,
+            "unit": "months",
+            "reference": "after the effective date of this AD",
+            "calendar_date": null,
+            "is_interval": false
+          }
+        ],
+        "interval": null,
+        "reference_documents": [
+          "SB A320-57-1089"
+        ],
+        "triggered_by_paragraph": null,
+        "terminating_action_for": null,
+        "is_terminating_action": false
+      },
+      {
+        "paragraph_id": "(9)",
+        "action_type": "corrective_action",
+        "applies_to_groups": null,
+        "applies_to_models": null,
+        "additional_applicability_condition": null,
+        "description": "If, during the inspection as required by paragraph (8) of this AD, discrepancies are detected, before next flight, contact Airbus for approved instructions and, within the compliance time specified therein, accomplish those instructions accordingly.",
+        "compliance_times": null,
+        "interval": null,
+        "reference_documents": null,
+        "triggered_by_paragraph": "(8)",
+        "terminating_action_for": null,
+        "is_terminating_action": false
+      },
+      {
+        "paragraph_id": "(10)",
+        "action_type": "prohibition",
+        "applies_to_groups": [
+          "Group 3"
+        ],
+        "applies_to_models": null,
+        "additional_applicability_condition": null,
+        "description": "From the effective date of this AD, do not accomplish SB A320-57-1089 at any revision lower than Revision 04.",
+        "compliance_times": null,
+        "interval": null,
+        "reference_documents": [
+          "SB A320-57-1089"
+        ],
+        "triggered_by_paragraph": null,
+        "terminating_action_for": null,
+        "is_terminating_action": false
+      },
+      {
+        "paragraph_id": "(11)",
+        "action_type": "clarification",
+        "applies_to_groups": null,
+        "applies_to_models": null,
+        "additional_applicability_condition": null,
+        "description": "Accomplishment of a repair/corrective action on an aeroplane as required by paragraph (3), (4), (6) or (9) of this AD, does not constitute terminating action for the repetitive inspections as required by paragraph (1), (2) or (5), as applicable, of this AD for that aeroplane, unless specified otherwise in those approved repair instructions.",
+        "compliance_times": null,
+        "interval": null,
+        "reference_documents": null,
+        "triggered_by_paragraph": null,
+        "terminating_action_for": null,
+        "is_terminating_action": false
+      },
+      {
+        "paragraph_id": "(12)",
+        "action_type": "terminating_action",
+        "applies_to_groups": null,
+        "applies_to_models": null,
+        "additional_applicability_condition": null,
+        "description": "Accomplishment of the modification as required by paragraph (7) of this AD constitutes terminating action for the repetitive inspections as required by paragraph (5) of this AD for that aeroplane.",
+        "compliance_times": null,
+        "interval": null,
+        "reference_documents": null,
+        "triggered_by_paragraph": null,
+        "terminating_action_for": [
+          "(5)"
+        ],
+        "is_terminating_action": true
+      }
+    ]
+  },
+  "EASA_AD_US-2025-23-53_1": {
+    "ad_number": "AD 2025-23-53",
+    "issuing_authority": "FAA",
+    "effective_date": "2025-12-01",
+    "revision": null,
+    "supersedes": [
+      "2025-23-51"
+    ],
+    "models": [
+      "MD-11",
+      "MD-11F",
+      "MD-10-10F",
+      "MD-10-30F",
+      "DC-10-10",
+      "DC-10-10F",
+      "DC-10-15",
+      "DC-10-30",
+      "DC-10-30F",
+      "KC-10A",
+      "KDC-10",
+      "DC-10-40F"
+    ],
+    "msn_constraints": null,
+    "modification_constraints": null,
+    "sb_constraints": null,
+    "compliance_time": [
+      {
+        "value": null,
+        "unit": "calendar_date",
+        "reference": "effective date of this AD",
+        "calendar_date": "2025-12-01",
+        "is_interval": false
+      }
+    ],
+    "groups": null,
+    "requirements": [
+      {
+        "paragraph_id": "(1)",
+        "action_type": "inspection",
+        "applies_to_groups": null,
+        "applies_to_models": [
+          "MD-11",
+          "MD-11F"
+        ],
+        "additional_applicability_condition": null,
+        "description": "Inspect the airplane and perform all applicable corrective actions, if necessary, using a method approved by the Manager, AIR-520, Continued Operational Safety Branch, FAA, before further flight.",
+        "compliance_times": [
+          {
+            "value": null,
+            "unit": "calendar_date",
+            "reference": "effective date of this AD",
+            "calendar_date": "2025-12-01",
+            "is_interval": false
+          }
+        ],
+        "interval": null,
+        "reference_documents": null,
+        "triggered_by_paragraph": null,
+        "terminating_action_for": null,
+        "is_terminating_action": false
+      },
+      {
+        "paragraph_id": "(2)",
+        "action_type": "inspection",
+        "applies_to_groups": null,
+        "applies_to_models": [
+          "MD-10-10F",
+          "MD-10-30F",
+          "DC-10-10",
+          "DC-10-10F",
+          "DC-10-15",
+          "DC-10-30",
+          "DC-10-30F",
+          "KC-10A",
+          "KDC-10",
+          "DC-10-40F"
+        ],
+        "additional_applicability_condition": null,
+        "description": "Inspect the airplane and perform all applicable corrective actions, if necessary, using a method approved by the Manager, AIR-520, Continued Operational Safety Branch, FAA, before further flight.",
+        "compliance_times": [
+          {
+            "value": null,
+            "unit": "calendar_date",
+            "reference": "effective date of this AD",
+            "calendar_date": "2025-12-01",
+            "is_interval": false
+          }
+        ],
+        "interval": null,
+        "reference_documents": null,
+        "triggered_by_paragraph": null,
+        "terminating_action_for": null,
+        "is_terminating_action": false
+      },
+      {
+        "paragraph_id": "(h)",
+        "action_type": "clarification",
+        "applies_to_groups": null,
+        "applies_to_models": null,
+        "additional_applicability_condition": null,
+        "description": "Special flight permits, as described in 14 CFR 21.197 and 21.199, are not allowed unless approved in accordance with the procedures specified in paragraph (i)(1) of this emergency AD.",
+        "compliance_times": null,
+        "interval": null,
+        "reference_documents": null,
+        "triggered_by_paragraph": null,
+        "terminating_action_for": null,
+        "is_terminating_action": false
+      },
+      {
+        "paragraph_id": "(i)",
+        "action_type": "clarification",
+        "applies_to_groups": null,
+        "applies_to_models": null,
+        "additional_applicability_condition": null,
+        "description": "The Manager, AIR-520, Continued Operational Safety Branch, FAA, has the authority to approve AMOCs for this emergency AD, in accordance with 14 CFR 39.19. Operators should send requests to their principal inspector or Flight Standards Office. Information directly to the manager of the Continued Operational Safety Branch should be sent to AMOC@faa.gov. Before using any approved AMOC, notify your appropriate principal inspector, or lacking a principal inspector, the manager of the local flight standards district office/certificate holding district office.",
+        "compliance_times": null,
+        "interval": null,
+        "reference_documents": null,
+        "triggered_by_paragraph": null,
+        "terminating_action_for": null,
+        "is_terminating_action": false
+      },
+      {
+        "paragraph_id": "(i)(2)",
+        "action_type": "clarification",
+        "applies_to_groups": null,
+        "applies_to_models": null,
+        "additional_applicability_condition": null,
+        "description": "An AMOC that provides an acceptable level of safety may be used for any repair, modification, or alteration required by this emergency AD if it is approved by The Boeing Company Organization Designation Authorization (ODA) that has been authorized by the Manager, AIR-520, Continued Operational Safety Branch, FAA, to make those findings. To be approved, the repair method, modification deviation, or alteration deviation must meet the certification basis of the airplane, and the approval must specifically refer to this emergency AD.",
+        "compliance_times": null,
+        "interval": null,
+        "reference_documents": null,
+        "triggered_by_paragraph": null,
+        "terminating_action_for": null,
+        "is_terminating_action": false
+      },
+      {
+        "paragraph_id": "(j)",
+        "action_type": "clarification",
+        "applies_to_groups": null,
+        "applies_to_models": null,
+        "additional_applicability_condition": null,
+        "description": "For more information about this emergency AD, contact Brian Knaup, Manager, AIR-520, Continued Operational Safety Branch, FAA, 2200 South 216th St., Des Moines, WA 98198; phone: 817-222-5390; email: OperationalSafety@faa.gov.",
+        "compliance_times": null,
+        "interval": null,
+        "reference_documents": null,
+        "triggered_by_paragraph": null,
+        "terminating_action_for": null,
+        "is_terminating_action": false
+      },
+      {
+        "paragraph_id": "(k)",
+        "action_type": "clarification",
+        "applies_to_groups": null,
+        "applies_to_models": null,
+        "additional_applicability_condition": null,
+        "description": "None.",
+        "compliance_times": null,
+        "interval": null,
+        "reference_documents": null,
+        "triggered_by_paragraph": null,
+        "terminating_action_for": null,
+        "is_terminating_action": false
+      }
+    ]
+  }
+}
