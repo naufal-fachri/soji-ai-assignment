@@ -55,25 +55,24 @@ GOOGLE_API_KEY=your-api-key-here
 
 ### 4. Install Python dependencies
 
-**GPU (CUDA 13.0):**
+> ⚠️ **You must run `uv sync` before using the pipeline.** This installs all required dependencies defined in `pyproject.toml`.
 
 ```bash
 uv sync
 ```
 
-**CPU only:**
+**CPU-only users:** After running `uv sync`, swap `paddlepaddle-gpu` for the CPU variant:
 
 ```bash
-uv sync
 uv pip uninstall paddlepaddle-gpu
 uv pip install paddlepaddle==3.3.0 --index-url https://www.paddlepaddle.org.cn/packages/stable/cpu/
 ```
 
 ---
 
-## Usage
+## Quick Start
 
-### Basic usage
+> Make sure you have completed the [Installation](#installation) steps (including `uv sync`) before proceeding.
 
 ```bash
 uv run python -m src.run \
@@ -81,6 +80,10 @@ uv run python -m src.run \
     --test-data <path-to-test-csv> \
     --save-dir <output-directory>
 ```
+
+---
+
+## Usage
 
 ### Examples
 
