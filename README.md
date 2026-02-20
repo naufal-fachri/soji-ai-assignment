@@ -178,6 +178,19 @@ The output CSV appends a column for each AD with one of the following statuses:
 | ❌ Not applicable | Aircraft model/MSN is outside AD scope |
 | ❌ Not Affected | Aircraft is excluded by an applied modification or SB |
 
+| aircraft_model   |   msn | modifications_applied   | EASA_AD_2025-0254R1_1   | EASA_AD_US-2025-23-53_1   |
+|------------------|-------|-------------------------|-------------------------|---------------------------|
+| MD-11            | 48123 | nan                     | ❌ Not applicable       | ✅ Affected               |
+| DC-10-30F        | 47890 | nan                     | ❌ Not applicable       | ✅ Affected               |
+| Boeing 737-800   | 30123 | nan                     | ❌ Not applicable       | ❌ Not applicable         |
+| A320-214         |  5234 | nan                     | ✅ Affected             | ❌ Not applicable         |
+| A320-232         |  6789 | mod 24591 (production)  | ❌ Not Affected         | ❌ Not applicable         |
+| A320-214         |  7456 | SB A320-57-1089 Rev 04  | ❌ Not Affected         | ❌ Not applicable         |
+| A321-111         |  8123 | nan                     | ✅ Affected             | ❌ Not applicable         |
+| A321-112         |   364 | mod 24977 (production)  | ❌ Not Affected         | ❌ Not applicable         |
+| A319-100         |  9234 | nan                     | ❌ Not applicable       | ❌ Not applicable         |
+| MD-10-10F        | 46234 | nan                     | ❌ Not applicable       | ✅ Affected               |
+
 ---
 
 ## Docker
