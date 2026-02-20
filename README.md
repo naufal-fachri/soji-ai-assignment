@@ -58,7 +58,7 @@ GOOGLE_API_KEY=your-api-key-here
 > ⚠️ **You must run `uv sync` before using the pipeline.** This installs all required dependencies defined in `pyproject.toml`.
 
 ```bash
-uv sync
+uv sync --frozen
 ```
 
 **CPU-only users:** After running `uv sync`, swap `paddlepaddle-gpu` for the CPU variant:
