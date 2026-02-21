@@ -21,7 +21,7 @@ Two pipeline modes are available:
 - [uv](https://docs.astral.sh/uv/) package manager
 - [Poppler](https://poppler.freedesktop.org/) (for `pdf2image`)
 - A [Google AI API key](https://aistudio.google.com/apikey) (Gemini)
-- **GPU mode**: NVIDIA GPU with CUDA 13.0+ drivers
+- **GPU mode only**: NVIDIA GPU with CUDA 13.0+ drivers
 
 ---
 
@@ -30,18 +30,19 @@ Two pipeline modes are available:
 ### 1. Clone the repository
 
 ```bash
-git clone <your-repo-url>
-cd soji-ai
+git clone https://github.com/naufal-fachri/soji-ai-assignment.git
+cd soji-ai-assignment
 ```
 
 ### 2. Install system dependencies
 
 ```bash
 # Ubuntu/Debian
-sudo apt-get install poppler-utils libgl1 libglib2.0-0
+sudo apt-get update
+sudo apt-get install -y poppler-utils libgl1 libglib2.0-0
 ```
 
-### 3. Set up environment
+### 3. Set up environment variables
 
 ```bash
 cp .env.example .env
@@ -55,27 +56,46 @@ GOOGLE_API_KEY=your-api-key-here
 
 ### 4. Install Python dependencies
 
-> ⚠️ **You must run `uv sync` before using the pipeline.** This installs all required dependencies defined in `pyproject.toml`.
+Choose **one** of the following based on your hardware:
+
+#### Option A: GPU (NVIDIA CUDA 13.0+)
 
 ```bash
 uv sync --frozen
+source .venv/bin/activate
 ```
 
-**CPU-only users:** After running `uv sync`, swap `paddlepaddle-gpu` for the CPU variant:
+Verify the installation:
 
 ```bash
-uv pip uninstall paddlepaddle-gpu
-uv pip install paddlepaddle==3.3.0 --index-url https://www.paddlepaddle.org.cn/packages/stable/cpu/
+python -c "import paddle; print('✅ paddle', paddle.__version__)"
+```
+
+#### Option B: CPU only (no NVIDIA GPU)
+
+```bash
+uv sync --frozen
+source .venv/bin/activate
+
+# Swap paddlepaddle-gpu for CPU version
+uv pip uninstall paddlepaddle-gpu paddlepaddle
+uv pip install paddlepaddle==3.3.0 -i https://www.paddlepaddle.org.cn/packages/stable/cpu/
+```
+
+Verify the installation:
+
+```bash
+python -c "import paddle; print('✅ paddle', paddle.__version__)"
 ```
 
 ---
 
 ## Quick Start
 
-> Make sure you have completed the [Installation](#installation) steps (including `uv sync`) before proceeding.
+> Make sure you have completed the [Installation](#installation) steps and activated the virtual environment before proceeding.
 
 ```bash
-uv run python -m src.run \
+python -m src.run \
     --ad-files <path-to-ad-pdf> [<path-to-ad-pdf> ...] \
     --test-data <path-to-test-csv> \
     --save-dir <output-directory>
@@ -90,7 +110,7 @@ uv run python -m src.run \
 **Single AD file (OCR mode, CPU):**
 
 ```bash
-uv run python -m src.run \
+python -m src.run \
     --device cpu \
     --ad-files documents/EASA_AD_2025-0254R1_1.pdf \
     --test-data test/ad_test_data.csv \
@@ -100,7 +120,7 @@ uv run python -m src.run \
 **Multiple AD files (OCR mode, GPU):**
 
 ```bash
-uv run python -m src.run \
+python -m src.run \
     --device gpu:0 \
     --ad-files documents/EASA_AD_2025-0254R1_1.pdf documents/EASA_AD_US-2025-23-53_1.pdf \
     --test-data test/ad_test_data.csv \
@@ -110,7 +130,7 @@ uv run python -m src.run \
 **LLM mode (multimodal, images sent directly to Gemini):**
 
 ```bash
-uv run python -m src.run \
+python -m src.run \
     --mode llm \
     --ad-files documents/EASA_AD_2025-0254R1_1.pdf \
     --test-data test/ad_test_data.csv \
@@ -198,6 +218,13 @@ The output CSV appends a column for each AD with one of the following statuses:
 
 ## Docker
 
+Two Dockerfiles are provided depending on your hardware:
+
+| File | Base Image | Requires |
+|------|-----------|----------|
+| `Dockerfile` | `nvidia/cuda:13.0.2` | NVIDIA GPU + [nvidia-container-toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html) |
+| `Dockerfile.cpu` | `ubuntu:24.04` | No GPU required |
+
 ### GPU
 
 ```bash
@@ -216,6 +243,12 @@ docker run --gpus all --env-file .env \
     --save-dir results/
 ```
 
+> **Prerequisite:** Requires `nvidia-container-toolkit` installed on the host:
+> ```bash
+> sudo apt-get install -y nvidia-container-toolkit
+> sudo systemctl restart docker
+> ```
+
 ### CPU
 
 ```bash
@@ -232,6 +265,16 @@ docker run --env-file .env \
     --test-data test/ad_test_data.csv \
     --save-dir results/
 ```
+
+> **Note:** The CPU image uses `paddlepaddle` (CPU-only) instead of `paddlepaddle-gpu`, so no NVIDIA drivers or GPU are required. The `--device cpu` flag is set automatically.
+
+### Docker Tips
+
+- `--env-file .env` passes your `GOOGLE_API_KEY` without baking it into the image.
+- Volume mounts (`-v`) map your local `documents/`, `test/`, and `results/` directories into the container.
+- On first run, PaddleOCR will download detection and recognition models (~50MB). Subsequent runs use cached models.
+- The GPU Dockerfile supports both `--device gpu:0` and `--device cpu` at runtime.
+- To clean up unused Docker images: `docker image prune -a`
 
 ---
 
@@ -271,10 +314,10 @@ soji-ai/
 │   ├── config.py                  # Settings from .env
 │   ├── run.py                     # CLI entrypoint
 │   ├── core/
-|   |   ├── __init__.py
-|   |   ├── prompt.py              # LLM system prompts
-|   |   ├── schemas.py             # Pydantic output schemas
-|   |   └── utils.py               # Shared utility function
+│   │   ├── __init__.py
+│   │   ├── prompt.py              # LLM system prompts
+│   │   ├── schemas.py             # Pydantic output schemas
+│   │   └── utils.py               # Shared utility function
 │   └── pipeline/
 │       ├── __init__.py
 │       ├── llm_pipeline.py        # Multimodal LLM pipeline
